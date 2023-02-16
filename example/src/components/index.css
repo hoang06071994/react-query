@@ -1,0 +1,12 @@
+.modal {
+    width: 70%;
+    margin: 0 auto;
+    background-color: rgba(240, 118, 18, 0.204);
+    padding: 2px 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.modal p {
+    margin: 3px 0;
+}
