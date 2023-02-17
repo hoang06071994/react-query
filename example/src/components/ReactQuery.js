@@ -13,10 +13,19 @@ const ReactQuery = () => {
 		return data.data;
 	}
 
-	const {data, status} = useQuery(
-		['planets','hello', page],
+	const {
+		data,
+		status,
+		isLoading,
+		isError,
+	} = useQuery(
+		['call api test react query', page],
 		() => fetchPlanets(page),
-		{ keepPreviousData : true }
+		{
+			staleTime: 5 * (60 * 1000),
+			cacheTime: 10 * (60 * 1000),
+		},
+		{ keepPreviousData : true },
 	);
 			
 	return (
@@ -39,9 +48,9 @@ const ReactQuery = () => {
 							</div>
 						)
 					})}
-      		<Pagination onChange={(numberPage) => setPage(numberPage)} total={50}/>
+      			<Pagination onChange={(numberPage) => setPage(numberPage)} total={50}/>
 				</>
-			)}
+			)} 
 			<ReactQueryDevtools initialIsOpen={false}/>
 		</>
 	);
